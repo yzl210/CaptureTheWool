@@ -1,0 +1,21 @@
+plugins {
+    id 'java'
+}
+
+group 'cn.leomc.capturethewool'
+version '1.0'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+    //Spigot
+    maven { url "https://hub.spigotmc.org/nexus/content/repositories/snapshots/" }
+    //Because Spigot depends on Bungeecord ChatComponent-API
+    maven { url "https://oss.sonatype.org/content/repositories/snapshots" }
+}
+
+dependencies {
+    compileOnly group: "org.spigotmc", name: "spigot-api", version: "1.16.2-R0.1-SNAPSHOT"
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}
