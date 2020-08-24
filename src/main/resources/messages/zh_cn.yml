@@ -1,0 +1,2 @@
+file.exists: "文件已存在"
+file.not_exists: "文件不存在"

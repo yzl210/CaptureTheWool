@@ -1,3 +1,9 @@
 name: CaptureTheWool
 main: cn.leomc.capturethewool.CaptureTheWool
 version: "1.0"
+author: LeoMC
+depend:
+  - LanguageUtils
+commands:
+  capturethewool:
+    aliases: ctw
