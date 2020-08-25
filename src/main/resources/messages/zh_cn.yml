@@ -1,2 +1,10 @@
+plugin.prefix: "[CaptureTheWool]"
+
 file.exists: "文件已存在"
 file.not_exists: "文件不存在"
+
+wool.acquire.you: "%player 获取了你们的 %wool羊毛"
+wool.acquire.their: "%player 获取了他们的%wool羊毛"
+wool.drop: "%player 丢失了%wool羊毛"
+
+player.not_found: "没有名为%player的玩家"

@@ -14,7 +14,7 @@ repositories {
     //Because Spigot depends on Bungeecord ChatComponent-API
     maven { url "https://oss.sonatype.org/content/repositories/snapshots" }
     //Github Projects
-    maven { url 'https://jitpack.io' }
+    maven { url "https://jitpack.io" }
 
 }
 
