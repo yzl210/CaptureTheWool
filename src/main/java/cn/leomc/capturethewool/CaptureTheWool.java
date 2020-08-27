@@ -4,6 +4,7 @@ import cn.leomc.languageutils.LanguageFileType;
 import cn.leomc.languageutils.LanguageUtils;
 import cn.leomc.languageutils.PluginLanguageProvider;
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.configuration.file.YamlConfiguration;
@@ -13,12 +14,13 @@ import org.bukkit.plugin.java.JavaPlugin;
 import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.List;
 
 public class CaptureTheWool extends JavaPlugin {
 
-    private static final List<Game> GAMES = new LinkedList<>();
+    private static final HashMap<String, Game> GAMES = new LinkedHashMap<>();
 
     private static CaptureTheWool instance;
 
@@ -101,7 +103,9 @@ public class CaptureTheWool extends JavaPlugin {
                 Utils.sendMessage(sender, "player.not_found", ph);
                 return true;
             }
-            //player.getPersistentDataContainer().set(Team.NAMESPACED_KEY, Team.PERSISTENT_DATA_TYPE, team);
+            Team team = GAMES.get(args[2]).getTeams().get(Utils.stringToColor(args[3]));
+
+            player.getPersistentDataContainer().set(Team.NAMESPACED_KEY, Team.PERSISTENT_DATA_TYPE, team);
 
         }
 
@@ -120,6 +124,8 @@ public class CaptureTheWool extends JavaPlugin {
         }
         for (File file : gameFolder.listFiles()) {
             YamlConfiguration config = YamlConfiguration.loadConfiguration(file);
+            Game game = new Game(config);
+            GAMES.put(file.getName().substring(0, file.getName().lastIndexOf(".yml")), game);
         }
     }
 

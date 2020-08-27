@@ -20,6 +20,7 @@ public class Team {
     private final HashMap<Color, Wool> wools = new LinkedHashMap();
     private final List<Player> players = new LinkedList<>();
     private Color color;
+    private Color stringColor;
     private Location spawnPoint = null;
     private ConfigurationSection config;
     private Game belongGame;
@@ -41,6 +42,9 @@ public class Team {
 
     }
 
+    public Color getStringColor() {
+        return stringColor;
+    }
 
     public List<Player> getPlayers() {
         return players;
